@@ -51,7 +51,7 @@ const ProjectSlider = () => {
           {ProjectData.map((item) => (
             <SwiperSlide key={item.title}>
               {/* mb = margin bottom, py = padding y, rounded-md makes corners round for images  */}
-              <div className="cursor-pointer flex flex-col gap-8 mb-10 group relative text-white shadow-lg rounded-xl px-6 py-8 md:h-[450px] md:w-[400px] h-[330px] w-[280px] mx-auto overflow-hidden">
+              <div className="cursor-pointer flex-1 flex-col gap-8 mb-10 group relative text-white shadow-lg rounded-xl px-6 py-8 h-[600px] md:w-[400px] mx-auto my-auto overflow-hidden">
                 {/* background image, also lets you use normal css */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"

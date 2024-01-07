@@ -38,10 +38,7 @@ const SkillsSlider = () => {
         <SwiperSlide className="mb-10">
           <div className="grid lg:grid-cols-3 grid-cols-2 gap-y-4 lg:gap-x-4 gap-x-2">
             {SkillImages.map((image) => (
-              <div
-                className="relative group w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-                key={image.src}
-              >
+              <div className="relative group flex flex-1" key={image.src}>
                 <Image
                   src={image.src}
                   alt="skill image"
