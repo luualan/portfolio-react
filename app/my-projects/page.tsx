@@ -10,7 +10,7 @@ import Particle from "@/components/Particle";
 const Page = () => {
   return (
     <div className="flex md:flex-row min-h-screen bg-[#1b1b1b]">
-      <div className="absolute right-0 top-0 h-full w-full z-[2]">
+      <div className="absolute right-0 top-0 h-full w-full z-[5]">
         <Particle />
       </div>
       {<ProjectSlider />}

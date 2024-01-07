@@ -126,7 +126,7 @@ const Experience = () => {
             company="Microsoft"
             companyLink="https://www.microsoft.com/en-us/"
             time="February 2016 - August 2016"
-            address="Mountain View, CA"
+            address="Redmond, WA"
             work="Analyzed Cosmos databases and fetched Cortana's daily usage data on Xbox One, identifying most-used features among alpha and beta testers. Developed statistical OnePulse websites to showcase Cortana data, aiding developers and managers in business and requirement decisions."
             languages="ASP.NET, Bootstrap, CSS, C#, Cosmos DB, HTML, JavaScript, jQuery, OnePulse, Scrum, U-SQL"
           />

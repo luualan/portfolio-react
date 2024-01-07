@@ -22,10 +22,10 @@ const Services = () => {
             className="flex-1 lg:bg-bottom lg:bg-[url('/assets/images/developer.png')] bg-blend-lighten bg-no-repeat mt-4 lg:mt-0 shadow-2xl px-6 py-6"
           >
             {/* <h2 className="h2 font-bold text-black mb-6">About Me</h2> */}
-            <h1 className="text-[50px] font-semibold mb-4">
+            <h1 className="text-[50px] font-semibold mb-3">
               About Me<span className="text-[#FF0000]">.</span>
             </h1>
-            <p className="max-w-[500px] text-[18px] font-medium w-full mb-4">
+            <p className="max-w-[500px] text-[16px] font-medium w-full mb-3">
               My name is Alan, and I&apos;m a Software Engineer with 2 years of
               work experience. During my free times, I enjoy reading, boxing,
               playing the piano and PC gaming.
@@ -45,14 +45,14 @@ const Services = () => {
                     >
                       <IconComponent className="w-6 h-6 text-[#FF0000]" />
                     </div>
-                    <div className="font-medium">{item.text}</div>
+                    <div className="font-medium text-[16px]">{item.text}</div>
                   </div>
                 );
               })}
             </div>
             <a
               href="/my-projects"
-              className="z-[4] relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-white transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-[#FF0000] group"
+              className="z-[10] relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-white transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-[#FF0000] group"
             >
               <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#1b1b1b] group-hover:h-full"></span>
               <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
@@ -112,12 +112,12 @@ const Services = () => {
                     key={index}
                   >
                     <div className="max-w-[500px]">
-                      <h3 className="captialize font-semibold text-2xl mb-6">
+                      <h3 className="captialize font-semibold text-2xl mb-5">
                         {/* <h4 className="text-[20px] tracking-wider font-primary font-semibold mb-6"> */}
                         {name}
                       </h3>
                       {/* md:text-gray-500 */}
-                      <p className="leading-tight font-medium w-full text-[16px] mb-6">
+                      <p className="leading-tight font-medium w-full text-[16px] mb-5">
                         {/* <p className=" font-secondary leading-tight"> */}
                         {description}
                       </p>

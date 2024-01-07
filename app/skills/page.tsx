@@ -13,12 +13,12 @@ const Page = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.3 }}
-        className="flex flex-col gap-3 md:mt-0 mt-32"
+        className="flex flex-col gap-3 md:mt-0 mt-24 mb-4"
       >
         <h1 className="text-[50px] text-white font-semibold md:p-0 p-3">
           My Skills<span className=" text-[#FF2E00]">.</span>
         </h1>
-        <p className="max-w-[400px] text-[16px] text-gray-200 md:texy-gray-400 md:p-0 p-3">
+        <p className="max-w-[400px] text-[18px] text-gray-100 font-medium md:p-0 p-3">
           The following are programming languages, frameworks, and tools I have
           worked with.
         </p>

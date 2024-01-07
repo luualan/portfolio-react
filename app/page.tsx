@@ -26,10 +26,10 @@ const downloadFile = (fileUrl: string, fileName: string) => {
 export default function Home() {
   return (
     <main className="flex flex-col justify-center items-center mx-auto relative darken-city">
-      <div className="absolute right-0 top-0 h-full w-full z-[2]">
+      <div className="absolute right-0 top-0 h-full w-full z-[5]">
         <Particle />
       </div>
-      <div className="absolute right-10 md:right-40 bottom-0 z-[20]">
+      <div className="absolute right-10 md:right-40 bottom-0 z-[10]">
         {/* <Image
           src="/assets/MoustacheMan.png"
           alt="MoustacheMan"
@@ -44,9 +44,9 @@ export default function Home() {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.3 }}
         // className="flex flex-col gap-3 z-[10] mb-10 pl-20 md:pl-60"
-        className="mb-10 md:p-0 p-3 z-[20]"
+        className="mb-10 md:p-0 p-3 z-[10]"
       >
-        <h1 className="text-[50px] font-medium text-white max-w-[600px]">
+        <h1 className="text-[50px] font-semibold text-white max-w-[600px]">
           Hello, I am a{" "}
           <span className="text-[#FF0000]">
             <TypeAnimation
@@ -71,7 +71,7 @@ export default function Home() {
           whileInView={"show"}
           viewport={{ once: false, amount: 0.3 }}
         >
-          <p className="text-[16px] text-gray-100 mb-2 md:pb-2 max-w-[600px] z-[20]">
+          <p className="text-[18px] text-gray-100 font-medium mb-2 md:pb-2 max-w-[600px] z-[10]">
             I&apos;m a Software Engineer located in Washington, with a keen
             interest in learning new technologies, programming languages, and
             frameworks.
@@ -85,7 +85,7 @@ export default function Home() {
         >
           <a
             href="#"
-            className="z-[20] relative mr-4 inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#FF0000] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
+            className="z-[10] relative mr-4 inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#FF0000] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
             onClick={() =>
               downloadFile(
                 "/assets/resume/Alan_Luu_Resume.pdf",
@@ -138,7 +138,7 @@ export default function Home() {
           </a>
           <a
             href="/about-me"
-            className="z-[20] relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#FF0000] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
+            className="z-[10] relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#FF0000] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group"
           >
             <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#FF0000] group-hover:h-full"></span>
             <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">

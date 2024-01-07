@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const ProjectSlider = () => {
   return (
-    <div className="items-center justify-center mx-auto my-auto w-[60%] z-[20] md:w-[65%]">
+    <div className="items-center justify-center mx-auto my-auto w-[60%] z-[10] md:w-[65%]">
       <motion.h1
         variants={fadeIn("down", 0.5)}
         initial="hidden"
@@ -23,7 +23,7 @@ const ProjectSlider = () => {
         viewport={{ once: false, amount: 0.3 }}
         className="text-center text-[50px] text-white font-semibold mb-6"
       >
-        My Projects<span className="text-[#FF0000]">.</span>
+        My Work<span className="text-[#FF0000]">.</span>
       </motion.h1>
       <motion.div
         variants={fadeIn("up", 0.5)}
@@ -51,7 +51,7 @@ const ProjectSlider = () => {
           {ProjectData.map((item) => (
             <SwiperSlide key={item.title}>
               {/* mb = margin bottom, py = padding y, rounded-md makes corners round for images  */}
-              <div className="cursor-pointer flex flex-col gap-8 mb-10 group relative text-white shadow-lg rounded-xl px-6 py-8 h-[450px] w-[400px] overflow-hidden">
+              <div className="cursor-pointer flex flex-col gap-8 mb-10 group relative text-white shadow-lg rounded-xl px-6 py-8 md:h-[450px] md:w-[400px] h-[330px] w-[280px] mx-auto overflow-hidden">
                 {/* background image, also lets you use normal css */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"
