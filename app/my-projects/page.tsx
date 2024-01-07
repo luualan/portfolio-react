@@ -9,8 +9,8 @@ import Particle from "@/components/Particle";
 
 const Page = () => {
   return (
-    <div className="flex md:flex-row min-h-screen bg-[#1b1b1b]">
-      <div className="absolute right-0 top-0 h-full w-full z-[5]">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#1b1b1b]">
+      <div className="absolute h-full w-full z-[5]">
         <Particle />
       </div>
       {<ProjectSlider />}
