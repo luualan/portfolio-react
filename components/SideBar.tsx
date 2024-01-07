@@ -16,25 +16,16 @@ const SideBar = () => {
   useEffect(() => {
     const navigationEntry = performance.getEntriesByType("navigation")[0];
 
-    // if user refreshes page, ensure sidebar shows the active page
-    if (navigationEntry && navigationEntry.type == "reload") {
+    // if user refreshes or navigates, ensure sidebar shows the active page
+    if (navigationEntry && navigationEntry.entryType === "navigation") {
       const findNav = NavLinks.find((navLink) => navLink.link === path);
       console.log(`path: ${path} findNav: ${findNav}`);
       setIsActive(findNav ? findNav.name : "");
-      setIsRouting(true);
-    } else if (prevPath !== path) {
       setIsRouting(true);
     }
   }, [path, prevPath]);
 
   useEffect(() => {
-    // for when main page button navigates without SideBar; improve later
-    if (path === "/about-me") {
-      setIsActive("About Me");
-    }
-    if (path === "/my-projects") {
-      setIsActive("Projects");
-    }
     if (isRouting) {
       setPrevPath(path);
       const timeout = setTimeout(() => {
@@ -51,13 +42,7 @@ const SideBar = () => {
         {isRouting && <Transition />}
         <div className="flex flex-col gap-5 pb-3 justify-center items-center h-full">
           {NavLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.link}
-              onClick={() => {
-                setIsActive(link.name);
-              }}
-            >
+            <Link key={link.name} href={link.link}>
               <link.icon
                 className={`w-[28px] h-[28px] ${
                   isActive === link.name ? " text-[#FF0000]" : "text-white"
