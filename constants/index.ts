@@ -177,7 +177,7 @@ export const Background = [
       icon: RxReader,
       title: "Notehub",
       content: "A Android app to share notes.",
-      backgroundImage: "/assets/projects/Notehub.jpg",
+      backgroundImage: "/assets/projects/notehub-home.jpg",
       link: "https://github.com/luualan/capstone-notehub-android"
     },
     {
