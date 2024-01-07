@@ -26,9 +26,9 @@ const Services = () => {
               About Me<span className="text-[#FF0000]">.</span>
             </h1>
             <p className="max-w-[500px] text-[18px] font-medium w-full mb-4">
-              My name is Alan, and I'm a Software Engineer with 2 years of work
-              experience. During my free times, I enjoy reading, boxing, playing
-              the piano and PC gaming.
+              My name is Alan, and I&apos;m a Software Engineer with 2 years of
+              work experience. During my free times, I enjoy reading, boxing,
+              playing the piano and PC gaming.
             </p>
             <div className="mb-4">
               {InfoData.map((item, index) => {

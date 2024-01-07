@@ -18,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor }) => {
       </h1>
       <div className="flex flex-row gap-5">
         {Socials.map((social) => (
-          <a href={social.link} className="flex">
+          <a href={social.link} key={social.name} className="flex">
             <Image
               key={social.name}
               src={social.src}
