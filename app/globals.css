@@ -2,26 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-}
+  
+  .slow-spin {
+    animation: rotation 5s linear infinite;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @layer base {
+    .text-gradient {
+      @apply bg-gradient-to-r text-transparent bg-clip-text from-[#42A6E3] to-[#FF56F6] font-bold font-primary hover:from-[#FF56F6] hover:to-[#42A6E3];
+    }
+    .section {
+      /* py-8 lg:py-24 */
+      @apply flex items-center my-8 py-20;
+    }
+  }
+
+  .darken-city {
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('/assets/backgrounds/city.jpg');
+    
+    background-position:center;
+    background-size:cover;
+    height: 100vh; /* 100% of the viewport height */
+    margin: 0; /* Remove default body margin */
+  }
+
+  .darken-code {
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('/assets/backgrounds/code2.jpg');
+    background-position: top;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #FF0000 !important;
 }

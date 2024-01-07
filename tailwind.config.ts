@@ -14,6 +14,23 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+
+
+    // Temp
+    fontFamily: {
+      primary: 'Orbitron',
+      secondary: 'Rajdhani',
+      tertiary: 'Aldrich',
+    },
+
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '960px',
+      xl: '1200px',
+    },
+
+
   },
   plugins: [],
 }
