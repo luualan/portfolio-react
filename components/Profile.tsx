@@ -19,7 +19,7 @@ const Services = () => {
             whileInView={"show"}
             viewport={{ once: false, amount: 0.3 }}
             // className="flex-1 lg:bg-[url('/assets/services.png')] lg:bg-bottom bg-no-repeat mix-blend-lighten mb-12 lg:mb-0"
-            className="flex-1 lg:bg-bottom lg:bg-[url('/assets/images/developer.png')] bg-blend-lighten bg-no-repeat mt-4 lg:mt-0 shadow-2xl px-6 py-6"
+            className="flex-1 lg:bg-bottom lg:bg-[url('/assets/images/dog-coding.png')] bg-blend-lighten bg-no-repeat mt-4 lg:mt-0 shadow-2xl px-6 py-6"
           >
             {/* <h2 className="h2 font-bold text-black mb-6">About Me</h2> */}
             <h1 className="text-[50px] font-semibold mb-3">
@@ -28,7 +28,7 @@ const Services = () => {
             <p className="max-w-[500px] text-[16px] font-medium w-full mb-3">
               My name is Alan, and I&apos;m a Software Engineer with 2 years of
               work experience. During my free times, I enjoy reading, boxing,
-              playing the piano and PC gaming.
+              playing the piano and PC games.
             </p>
             <div className="mb-4">
               {InfoData.map((item, index) => {
