@@ -15,7 +15,7 @@ import Image from "next/image";
 
 const ProjectSlider = () => {
   return (
-    <div className="items-center justify-center mx-auto my-auto w-[60%] md:w-[65%]">
+    <div className="items-center justify-center mx-auto my-auto w-[60%] z-[20] md:w-[65%]">
       <motion.h1
         variants={fadeIn("down", 0.5)}
         initial="hidden"

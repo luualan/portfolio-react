@@ -29,7 +29,7 @@ export default function Home() {
       <div className="absolute right-0 top-0 h-full w-full z-[2]">
         <Particle />
       </div>
-      <div className="absolute right-10 md:right-40 bottom-0 z-[10]">
+      <div className="absolute right-10 md:right-40 bottom-0 z-[20]">
         {/* <Image
           src="/assets/MoustacheMan.png"
           alt="MoustacheMan"
@@ -44,7 +44,7 @@ export default function Home() {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.3 }}
         // className="flex flex-col gap-3 z-[10] mb-10 pl-20 md:pl-60"
-        className="mb-10 md:p-0 p-3"
+        className="mb-10 md:p-0 p-3 z-[20]"
       >
         <h1 className="text-[50px] font-medium text-white max-w-[600px]">
           Hello, I am a{" "}
@@ -71,7 +71,7 @@ export default function Home() {
           whileInView={"show"}
           viewport={{ once: false, amount: 0.3 }}
         >
-          <p className="text-[16px] text-gray-100 mb-2 md:pb-2 max-w-[600px]">
+          <p className="text-[16px] text-gray-100 mb-2 md:pb-2 max-w-[600px] z-[20]">
             I&apos;m a Software Engineer located in Washington, with a keen
             interest in learning new technologies, programming languages, and
             frameworks.

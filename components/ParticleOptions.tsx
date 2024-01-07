@@ -144,7 +144,7 @@ export const triangle = {
         enable: true,
         mode: "repulse",
       },
-      resize: true,
+      //resize: true,
     },
     modes: {
       repulse: {
@@ -180,7 +180,7 @@ export const triangle = {
     number: {
       density: {
         enable: true,
-        area: 800,
+        // area: 800,
       },
       value: 105,
     },
