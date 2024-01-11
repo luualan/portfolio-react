@@ -145,14 +145,14 @@ export const Background = [
   {
     name: "Quality Assurance Software Engineer",
     description:
-      "I have 18 months of experience developing and deploying robust test solutions for new Xbox consoles, covering firmware, hardware, and OS. This has strengthened my troubleshooting skills, as I regularly identify and address errors and bugs across Xbox labs worldwide.",
+      "I have 18 months of experience developing and deploying reliability stress tests for new Xbox consoles, emcompassing firmware, hardware, and the OS. This has strengthened my troubleshooting skills, as I regularly identify and address errors and bugs across Xbox labs worldwide.",
     link: "Learn More",
     icon: BsFillClipboardDataFill
   },
   {
-    name: "Data Analyst Software Engineer",
+    name: "Data Software Engineer",
     description:
-      "I have 15 months of Data Analyst experience through a Year Up apprenticeship, including 8 months of college courses. In a 7-month internship at Microsoft with the Cortana team, I analyzed data on Xbox One features and Cortana voice commands, presenting insights to developers and managers.",
+      "I have 15 months of database experience through a Year Up apprenticeship, including 8 months of college courses. In a 7-month internship at Microsoft with the Cortana team, I analyzed big data on Xbox One features and Cortana voice commands, presenting insights to developers and managers.",
     link: "Learn More",
     icon: BsDatabaseFillGear
   },

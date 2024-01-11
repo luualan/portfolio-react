@@ -118,7 +118,8 @@ const Experience = () => {
             companyLink="https://www.microsoft.com/en-us/"
             time="March 2022 - September 2023"
             address="Redmond, WA"
-            work="Developed hardware and software reliability tests for new Xbox consoles, achieving a 96% on-time delivery to Xbox testing labs worldwide. Troubleshooted worldwide Xbox test errors, ensuring uninterrupted daily testing by identifying firmware, hardware, OS, and network issues. Rectified 54 C# and 68 C++ CodeQL errors in 4 Xbox repos, eliminating security vulnerabilities, memory leaks, and enhancing code quality. Refactored 41 decade-old C# projects and pre-built their NuGet packages in a separate repo, reducing the main repo's build time by 6 minutes."
+            work="
+            Designed and implemented hardware and software reliability stress tests for new Xbox consoles, ensuring on-time delivery to Xbox testing labs worldwide despite the departure of all senior engineers on the team. Troubleshooted worldwide Xbox test errors, ensuring uninterrupted daily testing by identifying firmware, hardware, OS, and network issues. Rectified 54 C# and 68 C++ CodeQL errors in 4 Xbox repositories, eliminating security vulnerabilities, memory leaks, and enhancing code quality.  Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repository, cutting the main repository’s build time by 6 minutes."
             languages="Azure DevOps, Batch, C#, C++, CodeQL, Python, Kusto Query, Scrum, XAML"
           />
           <Details
@@ -127,7 +128,7 @@ const Experience = () => {
             companyLink="https://www.microsoft.com/en-us/"
             time="February 2016 - August 2016"
             address="Redmond, WA"
-            work="Analyzed Cosmos databases and fetched Cortana's daily usage data on Xbox One, identifying most-used features among alpha and beta testers. Developed statistical OnePulse websites to showcase Cortana data, aiding developers and managers in business and requirement decisions."
+            work="Conducted database analysis on Azure Cosmos databases and wrote SCOPE/U-SQL queries to extract Cortana usage data on Xbox One, identifying key features from testers for the upcoming Cortana release on Xbox. Developed statistical OnePulse websites to showcase Cortana data, supporting developers and managers in business and requirement decisions. Implemented an ASP.NET frontend dashboard connecting my Cortana websites for swift employee access to relevant data."
             languages="ASP.NET, Bootstrap, CSS, C#, Cosmos DB, HTML, JavaScript, jQuery, OnePulse, Scrum, U-SQL"
           />
           <Details
@@ -136,7 +137,8 @@ const Experience = () => {
             companyLink="https://www.yearup.org/"
             time="September 2015 - November 2015"
             address="Redmond, WA"
-            work="Assisted in teaching Year Up students the fundamentals of C#."
+            work="
+            Instructed Year Up students in C# and IT fundamentals, preparing them for their internships and the CompTIA A+ certification exam. Conducted dynamic lessons every Friday from 12 pm to 1 pm, crafting and distributing targeted study guides to ensure comprehensive learning and exam readiness."
             languages=""
           />
         </ul>
