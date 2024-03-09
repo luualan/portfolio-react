@@ -36,7 +36,7 @@ const SkillsSlider = () => {
         modules={[FreeMode, Pagination]}
       >
         <SwiperSlide className="mb-10">
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-y-4 lg:gap-x-4 gap-x-2">
+          <div className="grid lg:grid-cols-5 grid-cols-2 gap-y-4 lg:gap-x-4 gap-x-2">
             {SkillImages.map((image) => (
               <div className="relative group flex flex-1" key={image.src}>
                 <Image
@@ -44,33 +44,13 @@ const SkillsSlider = () => {
                   alt="skill image"
                   width={200}
                   height={200}
-                  className="rounded-full h-full w-full object-cover"
+                  className="rounded h-full w-full object-cover"
                 />
                 {/* opacity set to 0 to hide, when mouse hover over, group-hover:opacity-70 */}
-                <div className="rounded-full cursor-pointer absolute inset-0 bg-[#FF0000] opacity-0 group-hover:opacity-80 transition-opacity duration-200" />
-                <div className="rounded-full cursor-pointer absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-200 text-white md:text-lg">
+                {/* <div className="rounded cursor-pointer absolute inset-0 bg-[#FF0000] opacity-0 group-hover:opacity-80 transition-opacity duration-200" />
+                <div className="rounded cursor-pointer absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-200 text-white md:text-lg">
                   {image.level}
-                </div>
-              </div>
-            ))}
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="mb-10">
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-y-4 lg:gap-x-4 gap-x-2">
-            {SkillImages2.map((image) => (
-              <div className="relative group flex flex-1" key={image.src}>
-                <Image
-                  src={image.src}
-                  alt="skill image"
-                  width={200}
-                  height={200}
-                  className="rounded-full h-full w-full object-cover"
-                />
-                {/* opacity set to 0 to hide, when mouse hover over, group-hover:opacity-70 */}
-                <div className="rounded-full cursor-pointer absolute inset-0 bg-[#FF0000] opacity-0 group-hover:opacity-80 transition-opacity duration-200" />
-                <div className="rounded-full cursor-pointer absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-opacity duration-200 text-white md:text-lg">
-                  {image.level}
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

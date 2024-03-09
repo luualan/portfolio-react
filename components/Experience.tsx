@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import LiIcon from "./LiIcon";
 import { fadeIn } from "@/variants";
+import { useMediaQuery } from "usehooks-ts";
 
 // w-full: full width of container
 // text-black/75 /75 adds 75% opactity
@@ -71,7 +72,7 @@ const Details: React.FC<DetailsProps> = ({
           ))}
         </ul>
         <ul className=" font-semibold w-full list-inside list:none">
-          <li>{languages && "Tech Stack: " + languages}</li>
+          <li>{languages && "Skills: " + languages}</li>
         </ul>
       </motion.div>
     </li>
@@ -80,12 +81,20 @@ const Details: React.FC<DetailsProps> = ({
 
 const Experience = () => {
   const ref = useRef(null);
+  const { scrollYProgress } = useScroll();
+
   // const { scrollYProgress } = useScroll({
   //   target: ref,
   //   offset: ["start start", "end end"],
   // });
 
-  const { scrollYProgress } = useScroll();
+  // prevent style bug with right side of screen on sm devices
+  const fadeInDownVariant = fadeIn("down", 0.5);
+  const fadeInRightVariant = fadeIn("right", 0.5);
+  const isSmallDevice = useMediaQuery("(max-width: 767px)");
+
+  // Set the variants based on the screen size
+  const variants = isSmallDevice ? fadeInDownVariant : fadeInRightVariant;
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -95,7 +104,7 @@ const Experience = () => {
 
   return (
     <motion.div
-      variants={fadeIn("right", 0.5)}
+      variants={variants}
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.3 }}
@@ -118,9 +127,8 @@ const Experience = () => {
             companyLink="https://www.microsoft.com/en-us/"
             time="March 2022 - September 2023"
             address="Redmond, WA"
-            work="
-            Designed and implemented hardware and software reliability stress tests for new Xbox consoles, ensuring on-time delivery to Xbox testing labs worldwide despite the departure of all senior engineers on the team. Troubleshooted worldwide Xbox test errors, ensuring uninterrupted daily testing by identifying firmware, hardware, OS, and network issues. Rectified 54 C# and 68 C++ CodeQL errors in 4 Xbox repositories, eliminating security vulnerabilities, memory leaks, and enhancing code quality.  Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repository, cutting the main repository’s build time by 6 minutes."
-            languages="Azure DevOps, Batch, C#, C++, CodeQL, Python, Kusto Query, Scrum, XAML"
+            work="Developed 1-12 day reliability test suites for new Xbox consoles, covering hardware and software tests across various test stations, and ensured timely delivery to testing labs worldwide despite the departure of all senior engineers. Addressed global Xbox test errors by troubleshooting environment, firmware, hardware, OS, and network issues, and documented solutions to ensure seamless daily testing worldwide. Automated extraction of Xbox test logs to Excel, eliminating the need for manual data entry by lab technicians. Rectified 54 C# and 68 C++ CodeQL errors in 4 Xbox repos, eliminating security vulnerabilities, memory leaks, and enhancing code quality.  Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repo, cutting the main repo’s build time by 6 minutes."
+            languages="Azure DevOps, Batch, C#, C++, CodeQL, Kusto Query, .NET Framework, Python, Scrum, XAML"
           />
           <Details
             position="Xbox Software Engineer Intern - Web Development"
@@ -129,7 +137,7 @@ const Experience = () => {
             time="February 2016 - August 2016"
             address="Redmond, WA"
             work="Conducted database analysis on Azure Cosmos databases and wrote SCOPE/U-SQL queries to extract Cortana usage data on Xbox One, identifying key features from testers for the upcoming Cortana release on Xbox. Developed statistical OnePulse websites to showcase Cortana data, supporting developers and managers in business and requirement decisions. Implemented an ASP.NET frontend dashboard connecting my Cortana websites for swift employee access to relevant data."
-            languages="ASP.NET, Bootstrap, CSS, C#, Cosmos DB, HTML, JavaScript, jQuery, OnePulse, Scrum, U-SQL"
+            languages="ASP.NET, Bootstrap, CSS, C#, Cosmos DB, HTML, JavaScript, jQuery, .NET, OnePulse, Scrum, U-SQL"
           />
           <Details
             position="Co-Teacher C#"
@@ -139,7 +147,7 @@ const Experience = () => {
             address="Redmond, WA"
             work="
             Instructed Year Up students in C# and IT fundamentals, preparing them for their internships and the CompTIA A+ certification exam. Conducted dynamic lessons every Friday from 12 pm to 1 pm, crafting and distributing targeted study guides to ensure comprehensive learning and exam readiness."
-            languages=""
+            languages="C#, CompTIA A+"
           />
         </ul>
       </div>

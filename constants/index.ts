@@ -96,11 +96,11 @@ import {
       level: "Advance"
     },
     {
-      src: "/assets/skills/mysql.svg",
-      level: "Advance"
+      src: "/assets/skills/c++.svg",
+      level: "Intermediate"
     },
     {
-      src: "/assets/skills/react.svg",
+      src: "/assets/skills/mysql.svg",
       level: "Advance"
     },
     {
@@ -117,6 +117,50 @@ import {
     },
     {
       src: "/assets/skills/python.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/android-studio.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/react.svg",
+      level: "Advance"
+    },
+    {
+      src: "/assets/skills/nextjs.svg",
+      level: "Intermediate"
+    },  
+    {
+      src: "/assets/skills/tailwindcss.svg",
+      level: "Intermediate"
+    }, 
+    {
+      src: "/assets/skills/spring.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/node.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/azure.svg",
+      level: "Advance"
+    },
+    {
+      src: "/assets/skills/git.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/eclipse.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/visual-studio.svg",
+      level: "Intermediate"
+    },
+    {
+      src: "/assets/skills/linux.svg",
       level: "Intermediate"
     },
   ];
