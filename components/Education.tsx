@@ -63,12 +63,12 @@ const Education = () => {
   // });
 
   // prevent style bug with right side of screen on sm devices
-  const fadeInDownVariant = fadeIn("down", 0.5);
+  const fadeInUndefinedVariant = fadeIn("undefined");
   const fadeInLeftVariant = fadeIn("left", 0.5);
-  const isSmallDevice = useMediaQuery("(max-width: 767px)");
+  const isSmallDevice = useMediaQuery("(max-width: 480px)");
 
   // Set the variants based on the screen size
-  const variants = isSmallDevice ? fadeInDownVariant : fadeInLeftVariant;
+  const variants = isSmallDevice ? fadeInUndefinedVariant : fadeInLeftVariant;
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,

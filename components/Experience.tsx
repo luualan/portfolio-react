@@ -89,12 +89,12 @@ const Experience = () => {
   // });
 
   // prevent style bug with right side of screen on sm devices
-  const fadeInDownVariant = fadeIn("down", 0.5);
+  const fadeInUndefinedVariant = fadeIn("undefined");
   const fadeInRightVariant = fadeIn("right", 0.5);
-  const isSmallDevice = useMediaQuery("(max-width: 767px)");
+  const isSmallDevice = useMediaQuery("(max-width: 480px)");
 
   // Set the variants based on the screen size
-  const variants = isSmallDevice ? fadeInDownVariant : fadeInRightVariant;
+  const variants = isSmallDevice ? fadeInUndefinedVariant : fadeInRightVariant;
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
