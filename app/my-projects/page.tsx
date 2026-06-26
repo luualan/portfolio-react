@@ -4,17 +4,17 @@ import React from "react";
 import ProjectSlider from "@/components/ProjectSlider";
 import Particle from "@/components/Particle";
 
-// md:flex-row puts things in a row
-// #f5f5f5 #1b1b1b
-
 const Page = () => {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-[#1b1b1b]">
-      <div className="absolute h-full w-full z-[5]">
+    <main className="relative min-h-screen overflow-hidden bg-[#1b1b1b] px-6 py-24 text-white md:px-16">
+      <div className="pointer-events-none absolute inset-0 z-[1]">
         <Particle />
       </div>
-      {<ProjectSlider />}
-    </div>
+
+      <div className="relative z-[10] mx-auto max-w-7xl">
+        <ProjectSlider />
+      </div>
+    </main>
   );
 };
 

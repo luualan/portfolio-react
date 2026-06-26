@@ -1,32 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+"use client";
+
+import { useMemo } from "react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
 import {
-  type Container,
+  type Engine,
   type ISourceOptions,
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
-// import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { loadSlim } from "@tsparticles/slim";
 
 const Particle = () => {
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      //await loadAll(engine);
-      await loadFull(engine);
-      //await loadSlim(engine);
-      //await loadBasic(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+  const particlesInit = async (engine: Engine): Promise<void> => {
+    await loadSlim(engine);
   };
 
   const options: ISourceOptions = useMemo(
@@ -65,8 +51,11 @@ const Particle = () => {
           width: 1,
         },
         move: {
+          direction: MoveDirection.none,
           enable: true,
-
+          outModes: {
+            default: OutMode.out,
+          },
           random: false,
           speed: 3,
           straight: false,
@@ -84,7 +73,10 @@ const Particle = () => {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: {
+            min: 1,
+            max: 5,
+          },
         },
       },
       detectRetina: true,
@@ -92,17 +84,11 @@ const Particle = () => {
     []
   );
 
-  if (init) {
-    return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
-    );
-  }
-
-  return <></>;
+  return (
+    <ParticlesProvider init={particlesInit}>
+      <Particles id="tsparticles" options={options} />
+    </ParticlesProvider>
+  );
 };
 
 export default Particle;

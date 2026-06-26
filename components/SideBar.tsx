@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { NavLinks } from "@/constants";
 import Link from "next/link";
@@ -10,48 +9,45 @@ import Transition from "./Transition";
 const SideBar = () => {
   const path = usePathname();
   const [isRouting, setIsRouting] = useState(false);
-  const [isActive, setIsActive] = useState("Home");
-  const [prevPath, setPrevPath] = useState("/");
 
-  useEffect(() => {
-    const navigationEntry = performance.getEntriesByType("navigation")[0];
+  const activeNavName =
+    NavLinks.find((navLink) => navLink.link === path)?.name ?? "Home";
 
-    // if user refreshes or navigates, ensure sidebar shows the active page
-    if (navigationEntry && navigationEntry.entryType === "navigation") {
-      const findNav = NavLinks.find((navLink) => navLink.link === path);
-      console.log(`path: ${path} findNav: ${findNav}`);
-      setIsActive(findNav ? findNav.name : "");
+  const handleNavClick = (link: string) => {
+    if (link !== path) {
       setIsRouting(true);
     }
-  }, [path, prevPath]);
+  };
 
   useEffect(() => {
-    if (isRouting) {
-      setPrevPath(path);
-      const timeout = setTimeout(() => {
-        setIsRouting(false);
-      }, 1200);
+    if (!isRouting) return;
 
-      return () => clearTimeout(timeout);
-    }
+    const timeout = setTimeout(() => {
+      setIsRouting(false);
+    }, 1200);
+
+    return () => clearTimeout(timeout);
   }, [isRouting]);
 
   return (
     <div className="fixed right-8 top-[40%] z-[20] h-[260px] w-[48px] rounded-full bg-gray-500 bg-opacity-50">
-      <AnimatePresence mode="wait">
-        {isRouting && <Transition />}
-        <div className="flex flex-col gap-5 pb-3 justify-center items-center h-full">
-          {NavLinks.map((link) => (
-            <Link key={link.name} href={link.link}>
-              <link.icon
-                className={`w-[28px] h-[28px] ${
-                  isActive === link.name ? " text-[#FF0000]" : "text-white"
-                }`}
-              />
-            </Link>
-          ))}
-        </div>
-      </AnimatePresence>
+      {isRouting && <Transition />}
+
+      <div className="flex h-full flex-col items-center justify-center gap-5 pb-3">
+        {NavLinks.map((link) => (
+          <Link
+            key={link.name}
+            href={link.link}
+            onClick={() => handleNavClick(link.link)}
+          >
+            <link.icon
+              className={`h-[28px] w-[28px] ${
+                activeNavName === link.name ? "text-[#FF0000]" : "text-white"
+              }`}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

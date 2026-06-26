@@ -89,7 +89,7 @@ const Experience = () => {
   // });
 
   // prevent style bug with right side of screen on sm devices
-  const fadeInUndefinedVariant = fadeIn("undefined");
+  const fadeInUndefinedVariant = fadeIn();
   const fadeInRightVariant = fadeIn("right", 0.5);
   const isSmallDevice = useMediaQuery("(max-width: 480px)");
 
@@ -122,22 +122,31 @@ const Experience = () => {
 
         <ul className="md:w-full w-fit flex flex-col items-start justify-between ml-20">
           <Details
+            position="Azure CXP Software Engineer - Data/Backend"
+            company="Microsoft"
+            companyLink="https://www.microsoft.com/en-us/"
+            time="April 2024 - December 2025"
+            address="Redmond, WA"
+            work="Migrated legacy Scala JAR logic to PySpark in Azure Synapse, rewriting 20+ notebooks and data pipelines to improve scalability and maintainability of Fortune 500 consumption and billing analytics (ex: Adobe, NVIDIA, Walmart). Reduced runtime of 3 production Apache Spark data pipelines by 75% (24h → 5–6h) by optimizing joins and partitioning, resolving stage retries through cluster scaling, and updating authentication to Managed Identity. Built ETL pipelines using Cosmos DB, Cosmos SCOPE, and Kusto/KQL to ingest, validate, and onboard 80+ metrics to an Azure Usage dashboard, deploying JSON configs to render graphs for telemetry and cloud metrics. Owned and enhanced 150+ Playwright E2E tests (TypeScript), expanding coverage across Product, Consumption, and Quality domains while stabilizing flaky tests and validating Azure Usage dashboard features amid UI changes."
+            languages="ASP.NET Core, Azure DevOps, Azure Synapse/ADF, C#, Cosmos DB (NoSQL), Cosmos SCOPE, Kusto (KQL), Playwright, PySpark, React, TypeScript, PowerShell, Scrum, SQL Server"
+          />
+          <Details
             position="Xbox Software Engineer - Manufacturing Tests"
             company="Microsoft"
             companyLink="https://www.microsoft.com/en-us/"
             time="March 2022 - September 2023"
             address="Redmond, WA"
-            work="Developed 1-12 day reliability test suites for new Xbox consoles, covering hardware and software tests across various test stations, and ensured timely delivery to testing labs worldwide despite the departure of all senior engineers. Addressed global Xbox test errors by troubleshooting environment, firmware, hardware, OS, and network issues, and documented solutions to ensure seamless daily testing worldwide. Automated extraction of Xbox test logs to Excel, eliminating the need for manual data entry by lab technicians. Rectified 54 C# and 68 C++ CodeQL errors in 4 Xbox repos, eliminating security vulnerabilities, memory leaks, and enhancing code quality.  Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repo, cutting the main repo’s build time by 6 minutes."
-            languages="Azure DevOps, Batch, C#, C++, CodeQL, Kusto Query, .NET Framework, Python, Scrum, XAML"
+            work="Developed and maintained multi-day (1–12 day) reliability test suites (C#, C++) for next-gen Xbox consoles, validating hardware, OS, networking, and thermal performance, ensuring timely delivery to global testing teams. Stabilized long-running Xbox reliability tests by debugging and resolving memory leaks, port exhaustion, and cross-stack failures across firmware, OS, networking, and test infrastructure, unblocking global teams. Automated extraction of Xbox test logs to Excel, eliminating the need for manual data entry by lab technicians. Improved code quality and security across 4 production repositories by resolving 120+ CodeQL issues (C#, C++), addressing vulnerabilities and maintainability risks. Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repo, cutting the main repo’s build time by 6 minutes."
+            languages="Azure DevOps, Batch, C#, C++, CodeQL, Kusto Query, .NET Framework, PowerShell, Python, Scrum, XAML"
           />
           <Details
-            position="Xbox Software Engineer Intern - Web Development"
+            position="Xbox Software Engineer Intern - Full Stack"
             company="Microsoft"
             companyLink="https://www.microsoft.com/en-us/"
             time="February 2016 - August 2016"
             address="Redmond, WA"
-            work="Conducted database analysis on Azure Cosmos databases and wrote SCOPE/U-SQL queries to extract Cortana usage data on Xbox One, identifying key features from testers for the upcoming Cortana release on Xbox. Developed statistical OnePulse websites to showcase Cortana data, supporting developers and managers in business and requirement decisions. Implemented an ASP.NET frontend dashboard connecting my Cortana websites for swift employee access to relevant data."
-            languages="ASP.NET, Bootstrap, CSS, C#, Cosmos DB, HTML, JavaScript, jQuery, .NET, OnePulse, Scrum, U-SQL"
+            work="Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage, helping developers identify high-impact features for the Xbox One Cortana release. Built OnePulse dashboard metric tiles (C#) to visualize Cortana usage trends, enabling engineering teams to prioritize feature improvements. Implemented an ASP.NET web dashboard aggregating Cortana metrics, improving access to usage insights."
+            languages="ASP.NET, Bootstrap, CSS, C#, Cosmos SCOPE, HTML, JavaScript, jQuery, .NET, OnePulse, Scrum, SQL Server, U-SQL"
           />
           <Details
             position="Co-Teacher C#"

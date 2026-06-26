@@ -28,7 +28,6 @@ const Transition = () => {
         className="fixed top-0 bottom-0 h-screen w-screen right-full z-[30] bg-white"
         variants={TransitionVariants}
         initial="initial"
-        exit="exit"
         animate="animate"
         transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
       />
@@ -36,7 +35,6 @@ const Transition = () => {
         className="fixed top-0 bottom-0 h-screen w-screen right-full z-[20] bg-[#1b1b1b]"
         variants={TransitionVariants}
         initial="initial"
-        exit="exit"
         animate="animate"
         transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
       />
@@ -44,7 +42,6 @@ const Transition = () => {
         className="fixed top-0 bottom-0 h-screen w-screen right-full z-[10] bg-[#FF0000]"
         variants={TransitionVariants}
         initial="initial"
-        exit="exit"
         animate="animate"
         transition={{ delay: 0.6, duration: 0.6, ease: "easeInOut" }}
       />

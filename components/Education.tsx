@@ -63,7 +63,7 @@ const Education = () => {
   // });
 
   // prevent style bug with right side of screen on sm devices
-  const fadeInUndefinedVariant = fadeIn("undefined");
+  const fadeInUndefinedVariant = fadeIn();
   const fadeInLeftVariant = fadeIn("left", 0.5);
   const isSmallDevice = useMediaQuery("(max-width: 480px)");
 

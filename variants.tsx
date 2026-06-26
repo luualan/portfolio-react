@@ -1,4 +1,11 @@
-export const fadeIn = (direction, delay) => {
+import type { Variants } from "framer-motion";
+
+type FadeDirection = "up" | "down" | "left" | "right" | "none";
+
+export const fadeIn = (
+  direction: FadeDirection = "none",
+  delay = 0
+): Variants => {
   return {
     hidden: {
       y: direction === "up" ? 80 : direction === "down" ? -80 : 0,
@@ -12,7 +19,7 @@ export const fadeIn = (direction, delay) => {
       transition: {
         type: "tween",
         duration: 1.2,
-        delay: delay,
+        delay,
         ease: [0.25, 0.25, 0.25, 0.75],
       },
     },

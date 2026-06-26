@@ -72,9 +72,7 @@ export default function Home() {
           viewport={{ once: false, amount: 0.3 }}
         >
           <p className="text-[18px] text-gray-100 font-medium mb-2 md:pb-2 max-w-[600px] z-[10]">
-            I&apos;m a Software Engineer located in Washington, with a keen
-            interest in learning new technologies, programming languages, and
-            frameworks.
+            I&apos;m a Software Engineer focused on backend systems, cloud services, and data-driven applications. I enjoy learning new technologies and building scalable, maintainable software.
           </p>
         </motion.div>
         <motion.div
