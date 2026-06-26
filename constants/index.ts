@@ -82,6 +82,131 @@ export const NavLinks = [
   },
 ];
 
+export const SkillHighlights = [
+  {
+    value: "4 yrs",
+    label: "software engineering experience across Microsoft teams",
+  },
+  {
+    value: "150+",
+    label: "Playwright end-to-end tests owned and enhanced",
+  },
+  {
+    value: "80+",
+    label: "cloud telemetry metrics onboarded to Azure dashboards",
+  },
+  {
+    value: "75%",
+    label: "runtime reduction across production Spark data pipelines",
+  },
+  {
+    value: "120+",
+    label: "CodeQL issues resolved across 4 production repositories",
+  },
+];
+
+export const SkillCategories = [
+  {
+    type: "Core",
+    title: "Programming Languages",
+    description:
+      "Languages I’ve used across backend services, data pipelines, automation, full-stack development, and systems-level projects.",
+    skills: [
+      "Python",
+      "SQL",
+      "C#",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "C++",
+      "Scala",
+    ],
+  },
+  {
+    type: "Backend",
+    title: "Backend & Web Frameworks",
+    description:
+      "Frameworks and libraries I’ve used to build APIs, backend workflows, web services, and data-driven applications.",
+    skills: [
+      "FastAPI",
+      "ASP.NET",
+      "Spring Boot",
+      "Node.js",
+      "SQLAlchemy",
+      "Pydantic",
+      "REST APIs",
+    ],
+  },
+  {
+    type: "Frontend",
+    title: "Frontend & UI",
+    description:
+      "Frontend technologies I’ve used to build dashboards, portfolio pages, and interactive web applications.",
+    skills: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML",
+      "CSS",
+      "Framer Motion",
+      "Responsive Design",
+    ],
+  },
+  {
+    type: "Cloud",
+    title: "Cloud Platforms",
+    description:
+      "Cloud services and platforms I’ve used for application hosting, storage, compute, and cloud-based engineering projects.",
+    skills: [
+      "Azure",
+      "AWS",
+      "Azure Blob Storage",
+      "S3",
+      "EC2",
+      "EventBridge",
+    ],
+  },
+  {
+    type: "Data",
+    title: "Data Engineering",
+    description:
+      "Data technologies I’ve used for ETL workflows, telemetry pipelines, usage analytics, querying, and large-scale data processing.",
+    skills: [
+      "Azure Synapse",
+      "Azure Data Factory",
+      "Apache Spark",
+      "PySpark",
+      "ETL/ELT",
+      "Cosmos DB",
+      "Cosmos SCOPE",
+      "DynamoDB",
+      "Kusto/KQL",
+      "SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "AWS Glue",
+      "Athena",
+    ],
+  },
+  {
+    type: "Tools",
+    title: "Developer Tools & Platforms",
+    description:
+      "Tools and platforms I’ve used for CI/CD, testing, automation, debugging, development workflows, and source control.",
+    skills: [
+      "Azure DevOps",
+      "CI/CD",
+      "Git",
+      "pytest",
+      "Playwright",
+      "CodeQL",
+      "Docker",
+      "Linux",
+      "VS Code",
+    ],
+  },
+];
+
 export const SkillImages = [
   {
     src: "/assets/skills/java.svg",
