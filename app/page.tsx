@@ -33,27 +33,47 @@ export default function Home() {
             Software Engineer
           </p> */}
 
-          <h1 className="text-[30px] md:text-[44px] leading-tight font-semibold text-white">
+          <h1 className="text-[28px] leading-tight font-semibold text-white md:text-[44px]">
             Hello, I am a
           </h1>
 
-          <h2 className="mt-1 text-[36px] md:text-[52px] leading-tight font-semibold text-[#818CF8] min-h-[58px]">
-            <TypeAnimation
-              sequence={[
-                "Software Engineer.",
-                2000,
-                "Backend Builder.",
-                2000,
-                "Problem Solver.",
-                2000,
-                "Lifelong Learner.",
-                2000,
-              ]}
-              repeat={Infinity}
-              style={{ display: "inline-block" }}
-            />
-          </h2>
+          <h2 className="mt-1 min-h-[42px] leading-tight font-semibold text-[#818CF8] md:min-h-[58px]">
+            {/* Mobile typing text */}
+            <span className="inline-block text-[30px] sm:hidden">
+              <TypeAnimation
+                sequence={[
+                  "Engineer.",
+                  2000,
+                  "Builder.",
+                  2000,
+                  "Solver.",
+                  2000,
+                  "Learner.",
+                  2000,
+                ]}
+                repeat={Infinity}
+                style={{ display: "inline-block" }}
+              />
+            </span>
 
+            {/* Desktop/tablet typing text */}
+            <span className="hidden whitespace-nowrap text-[clamp(36px,5vw,52px)] sm:inline-block">
+              <TypeAnimation
+                sequence={[
+                  "Software Engineer.",
+                  2000,
+                  "Backend Builder.",
+                  2000,
+                  "Problem Solver.",
+                  2000,
+                  "Lifelong Learner.",
+                  2000,
+                ]}
+                repeat={Infinity}
+                style={{ display: "inline-block" }}
+              />
+            </span>
+          </h2>
           <p className="mt-3 text-[13px] md:text-[15px] leading-6 text-slate-200 font-medium max-w-[480px] mx-auto">
             Always learning, always building — creating software that grows with every challenge.
           </p>
