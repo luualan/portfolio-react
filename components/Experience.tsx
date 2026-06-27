@@ -1,166 +1,203 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import LiIcon from "./LiIcon";
+import React from "react";
+import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
-import { useMediaQuery } from "usehooks-ts";
 
-// w-full: full width of container
-// text-black/75 /75 adds 75% opactity
-// my adding space after
-// originally ml 4 now ml 20
-// mx-auto centers div
-
-type DetailsProps = {
+type ExperienceItem = {
   position: string;
   company: string;
   companyLink: string;
   time: string;
-  address: string;
-  work: string;
-  languages: string;
+  location: string;
+  summary: string;
+  highlights: string[];
+  skills: string[];
 };
 
-const Details: React.FC<DetailsProps> = ({
-  position,
-  company,
-  companyLink,
-  time,
-  address,
-  work,
-  languages,
-}) => {
-  const ref = useRef(null);
-  const sentences = work.split(/(?<=\.)(?![a-zA-Z])\s*/);
+const experienceItems: ExperienceItem[] = [
+  {
+    position: "Azure CXP Software Engineer — Data/Backend",
+    company: "Microsoft",
+    companyLink: "https://www.microsoft.com/en-us/",
+    time: "April 2024 – December 2025",
+    location: "Redmond, WA",
+    summary:
+      "Worked on cloud data workflows, backend systems, telemetry dashboards, and automated testing for Azure usage and billing analytics.",
+    highlights: [
+      "Migrated legacy Scala logic to PySpark in Azure Synapse, rewriting 20+ notebooks and data pipelines for Fortune 500 consumption and billing analytics.",
+      "Reduced runtime of 3 production Spark pipelines by 75% by optimizing joins, partitioning, cluster scaling, and Managed Identity authentication.",
+      "Built ETL workflows using Cosmos DB, Cosmos SCOPE, and Kusto/KQL to ingest, validate, and onboard 80+ telemetry metrics.",
+      "Owned and enhanced 150+ Playwright E2E tests across Product, Consumption, and Quality areas for an Azure Usage dashboard.",
+    ],
+    skills: [
+      "Python",
+      "PySpark",
+      "Azure Synapse",
+      "Azure Data Factory",
+      "Cosmos DB",
+      "Kusto/KQL",
+      "Playwright",
+      "TypeScript",
+      "React",
+      "C#",
+      "Azure DevOps",
+    ],
+  },
+  {
+    position: "Xbox Software Engineer — Manufacturing Tests",
+    company: "Microsoft",
+    companyLink: "https://www.microsoft.com/en-us/",
+    time: "March 2022 – September 2023",
+    location: "Redmond, WA",
+    summary:
+      "Developed reliability and system validation test suites for next-generation Xbox consoles across hardware, OS, networking, and test infrastructure.",
+    highlights: [
+      "Developed and maintained multi-day reliability test suites in C# and C++ for Xbox console validation across global lab environments.",
+      "Debugged long-running test failures involving memory leaks, port exhaustion, firmware, OS, networking, and test infrastructure.",
+      "Automated Xbox test log extraction to Excel, reducing manual data entry for lab technicians.",
+      "Resolved 120+ CodeQL issues across 4 production repositories, improving code quality, security, and maintainability.",
+      "Refactored 41 legacy C# projects and migrated pre-built NuGet packages to reduce main repo build time by 6 minutes.",
+    ],
+    skills: [
+      "C#",
+      "C++",
+      ".NET Framework",
+      "PowerShell",
+      "Python",
+      "CodeQL",
+      "Azure DevOps",
+      "Kusto",
+      "XAML",
+      "Scrum",
+    ],
+  },
+  {
+    position: "Xbox Software Engineer Intern — Full Stack",
+    company: "Microsoft",
+    companyLink: "https://www.microsoft.com/en-us/",
+    time: "February 2016 – August 2016",
+    location: "Redmond, WA",
+    summary:
+      "Built analytics scripts, dashboard features, and internal tools for Cortana usage insights on Xbox One.",
+    highlights: [
+      "Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage.",
+      "Built OnePulse dashboard metric tiles in C# to visualize Cortana usage trends for engineering teams.",
+      "Implemented an ASP.NET web dashboard to aggregate Cortana metrics and improve access to usage insights.",
+    ],
+    skills: [
+      "ASP.NET",
+      "C#",
+      "Cosmos SCOPE",
+      "SQL Server",
+      "U-SQL",
+      "JavaScript",
+      "jQuery",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+    ],
+  },
+  {
+    position: "Co-Teacher — C#",
+    company: "Year Up",
+    companyLink: "https://www.yearup.org/",
+    time: "September 2015 – November 2015",
+    location: "Redmond, WA",
+    summary:
+      "Supported students preparing for internships by teaching C# and IT fundamentals.",
+    highlights: [
+      "Led weekly lessons covering C#, IT fundamentals, and CompTIA A+ preparation.",
+      "Created study guides and practice materials to help students strengthen technical foundations.",
+    ],
+    skills: ["C#", "CompTIA A+", "Teaching", "Technical Mentorship"],
+  },
+];
 
+const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }) => {
   return (
-    <li
-      ref={ref}
-      className="my-4 first:mt-0 last:mb-0 w-[80%] flex flex-col justify-between"
-    >
-      <LiIcon reference={ref} />
-      <motion.div
-        initial={{ y: 50 }}
-        whileInView={{ y: 0 }}
-        transition={{ duration: 0.5, type: "spring" }}
-      >
-        <h3 className="captialize font-bold text-2xl">
-          {position}
+    <article className="group relative pl-10">
+      <div className="absolute left-[7px] top-2 h-full w-px bg-white/10 group-last:hidden" />
 
-          {/* &nbsp;
-          <a
-            href={companyLink}
-            target="_blank"
-            className=" text-[#FF0000] capitalize"
-          >
-            @{company}
-          </a> */}
-        </h3>
-        <span className="capitalize font-medium text-[#1b1b1b]/75">
-          {company} | {address} | {time}
-        </span>
+      <div className="absolute left-0 top-2 h-4 w-4 rounded-full border-2 border-[#FF0000] bg-[#1b1b1b] shadow-[0_0_20px_rgba(255,0,0,0.45)]" />
 
-        <ul>
-          {sentences.map((sentence, index) => (
-            <li
-              key={index}
-              className="font-medium w-full list-disc list-inside"
-            >
-              {sentence}
+      <div className="rounded-3xl border border-white/10 bg-[#101010]/90 p-6 shadow-xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#FF0000]/60 hover:bg-white/[0.04]">
+        <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="mb-2 font-mono text-xs text-[#FF0000]">
+              0{index + 1}
+            </p>
+
+            <h2 className="text-2xl font-semibold text-white">
+              {item.position}
+            </h2>
+
+            <p className="mt-2 text-sm font-medium text-gray-400">
+              <a
+                href={item.companyLink}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#FF0000] hover:underline"
+              >
+                {item.company}
+              </a>{" "}
+              · {item.location}
+            </p>
+          </div>
+
+          <span className="w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-gray-300">
+            {item.time}
+          </span>
+        </div>
+
+        <p className="mb-5 text-sm leading-6 text-gray-300">{item.summary}</p>
+
+        <ul className="mb-5 space-y-3">
+          {item.highlights.map((highlight) => (
+            <li key={highlight} className="flex gap-3 text-sm leading-6 text-gray-300">
+              <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF0000]" />
+              <span>{highlight}</span>
             </li>
           ))}
         </ul>
-        <ul className=" font-semibold w-full list-inside list:none">
-          <li>{languages && "Skills: " + languages}</li>
-        </ul>
-      </motion.div>
-    </li>
+
+        <div className="flex flex-wrap gap-2">
+          {item.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-md border border-white/10 bg-black/30 px-3 py-1.5 font-mono text-xs text-gray-200"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
   );
 };
 
 const Experience = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll();
-
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start start", "end end"],
-  // });
-
-  // prevent style bug with right side of screen on sm devices
-  const fadeInUndefinedVariant = fadeIn();
-  const fadeInRightVariant = fadeIn("right", 0.5);
-  const isSmallDevice = useMediaQuery("(max-width: 480px)");
-
-  // Set the variants based on the screen size
-  const variants = isSmallDevice ? fadeInUndefinedVariant : fadeInRightVariant;
-
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   return (
-    <motion.div
-      variants={variants}
+    <motion.section
+      variants={fadeIn("right", 0.3)}
       initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.3 }}
-      className="my-28 shadow-2xl py-6 text-[#1b1b1b]"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.15 }}
+      className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-sm md:p-8"
     >
-      <h1 className="text-[50px] font-bold mb-14 md:w-full text-center justify-between">
-        Experience<span className="text-[#FF0000]">.</span>
-      </h1>
-
-      <div ref={ref} className="w-[100%] relative">
-        <motion.div
-          style={{ scaleY }}
-          className="absolute ml-9 top-0 w-[4px] h-full bg-[#1b1b1b] origin-top"
-        />
-
-        <ul className="md:w-full w-fit flex flex-col items-start justify-between ml-20">
-          <Details
-            position="Azure CXP Software Engineer - Data/Backend"
-            company="Microsoft"
-            companyLink="https://www.microsoft.com/en-us/"
-            time="April 2024 - December 2025"
-            address="Redmond, WA"
-            work="Migrated legacy Scala JAR logic to PySpark in Azure Synapse, rewriting 20+ notebooks and data pipelines to improve scalability and maintainability of Fortune 500 consumption and billing analytics (ex: Adobe, NVIDIA, Walmart). Reduced runtime of 3 production Apache Spark data pipelines by 75% (24h → 5–6h) by optimizing joins and partitioning, resolving stage retries through cluster scaling, and updating authentication to Managed Identity. Built ETL pipelines using Cosmos DB, Cosmos SCOPE, and Kusto/KQL to ingest, validate, and onboard 80+ metrics to an Azure Usage dashboard, deploying JSON configs to render graphs for telemetry and cloud metrics. Owned and enhanced 150+ Playwright E2E tests (TypeScript), expanding coverage across Product, Consumption, and Quality domains while stabilizing flaky tests and validating Azure Usage dashboard features amid UI changes."
-            languages="ASP.NET Core, Azure DevOps, Azure Synapse/ADF, C#, Cosmos DB (NoSQL), Cosmos SCOPE, Kusto (KQL), Playwright, PySpark, React, TypeScript, PowerShell, Scrum, SQL Server"
-          />
-          <Details
-            position="Xbox Software Engineer - Manufacturing Tests"
-            company="Microsoft"
-            companyLink="https://www.microsoft.com/en-us/"
-            time="March 2022 - September 2023"
-            address="Redmond, WA"
-            work="Developed and maintained multi-day (1–12 day) reliability test suites (C#, C++) for next-gen Xbox consoles, validating hardware, OS, networking, and thermal performance, ensuring timely delivery to global testing teams. Stabilized long-running Xbox reliability tests by debugging and resolving memory leaks, port exhaustion, and cross-stack failures across firmware, OS, networking, and test infrastructure, unblocking global teams. Automated extraction of Xbox test logs to Excel, eliminating the need for manual data entry by lab technicians. Improved code quality and security across 4 production repositories by resolving 120+ CodeQL issues (C#, C++), addressing vulnerabilities and maintainability risks. Refactored 41 legacy C# projects and migrated and pre-built their NuGet packages in a separate repo, cutting the main repo’s build time by 6 minutes."
-            languages="Azure DevOps, Batch, C#, C++, CodeQL, Kusto Query, .NET Framework, PowerShell, Python, Scrum, XAML"
-          />
-          <Details
-            position="Xbox Software Engineer Intern - Full Stack"
-            company="Microsoft"
-            companyLink="https://www.microsoft.com/en-us/"
-            time="February 2016 - August 2016"
-            address="Redmond, WA"
-            work="Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage, helping developers identify high-impact features for the Xbox One Cortana release. Built OnePulse dashboard metric tiles (C#) to visualize Cortana usage trends, enabling engineering teams to prioritize feature improvements. Implemented an ASP.NET web dashboard aggregating Cortana metrics, improving access to usage insights."
-            languages="ASP.NET, Bootstrap, CSS, C#, Cosmos SCOPE, HTML, JavaScript, jQuery, .NET, OnePulse, Scrum, SQL Server, U-SQL"
-          />
-          <Details
-            position="Co-Teacher C#"
-            company="Year Up"
-            companyLink="https://www.yearup.org/"
-            time="September 2015 - November 2015"
-            address="Redmond, WA"
-            work="
-            Instructed Year Up students in C# and IT fundamentals, preparing them for their internships and the CompTIA A+ certification exam. Conducted dynamic lessons every Friday from 12 pm to 1 pm, crafting and distributing targeted study guides to ensure comprehensive learning and exam readiness."
-            languages="C#, CompTIA A+"
-          />
-        </ul>
+      <div className="mb-8">
+        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#FF0000]">
+          Work History
+        </p>
+        <h2 className="text-3xl font-semibold text-white">Experience</h2>
       </div>
-    </motion.div>
+
+      <div className="space-y-8">
+        {experienceItems.map((item, index) => (
+          <ExperienceCard key={`${item.position}-${item.time}`} item={item} index={index} />
+        ))}
+      </div>
+    </motion.section>
   );
 };
 
