@@ -4,11 +4,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { InfoData, Background } from "@/constants";
-import Link from "next/link";
+import { useRouteTransition } from "./RouteTransitionProvider";
 
 const Profile = () => {
+  const { navigateWithTransition } = useRouteTransition();
+
   return (
     <section className="relative min-h-screen px-6 py-24 md:px-16">
+
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-[-10%] top-[20%] h-[350px] w-[350px] rounded-full bg-[#6366F1]/10 blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] h-[350px] w-[350px] rounded-full bg-[#6366F1]/10 blur-[120px]" />
@@ -105,13 +108,14 @@ const Profile = () => {
               }}
               whileTap={{ scale: 0.97 }}
             >
-              <Link
-                href="/my-projects"
+              <button
+                type="button"
+                onClick={() => navigateWithTransition("/my-projects")}
                 className="inline-flex items-center rounded-full bg-[#6366F1] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(99,102,241,0.28)] transition hover:bg-[#4338CA] hover:shadow-[0_14px_32px_rgba(67,56,202,0.38)]"
               >
                 See my work
                 <span className="ml-2">→</span>
-              </Link>
+              </button>
             </motion.div>
 
             <motion.div
@@ -126,12 +130,13 @@ const Profile = () => {
               }}
               whileTap={{ scale: 0.97 }}
             >
-              <Link
-                href="/experience"
+              <button
+                type="button"
+                onClick={() => navigateWithTransition("/experience")}
                 className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-white transition hover:border-[#6366F1]/60 hover:bg-white/[0.06]"
               >
                 View experience
-              </Link>
+              </button>
             </motion.div>
           </div>
         </motion.div>
@@ -149,7 +154,7 @@ const Profile = () => {
               damping: 22,
             },
           }}
-         className="flex-1 rounded-none rounded-tr-3xl border border-white/10 bg-[#101010]/90 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 md:p-8"
+          className="flex-1 rounded-none rounded-tr-3xl border border-white/10 bg-[#101010]/90 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 md:p-8"
         // style={{ transformStyle: "preserve-3d" }}
         >
           <div className="mb-6">
@@ -221,81 +226,81 @@ const Profile = () => {
             })}
           </div>
         </motion.div>
-        
+
       </div>
       <motion.div
-  variants={fadeIn("up", 0.35)}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.2 }}
-  className="relative z-10 mx-auto max-w-7xl rounded-b-3xl rounded-t-none border border-t-0 border-white/10 bg-[#101010]/90 p-6 shadow-2xl backdrop-blur-sm md:p-8"
->
-  <div className="mb-6">
-    <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
-      Currently Building
-    </p>
-    <h2 className="text-3xl font-semibold text-white">
-      What I&apos;m working on now
-    </h2>
-    <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-400">
-     Projects I&apos;m actively improving to strengthen my full-stack, cloud, distributed systems, and system design skills.
-    </p>
-  </div>
-
-  <div className="grid gap-4 md:grid-cols-3">
-    {[
-      // {
-      //   title: "AI Agent Analytics Dashboard",
-      //   description:
-      //     "A dashboard for tracking AI requests, latency, token usage, cost, failures, traces, and tool calls.",
-      //   stack: ["React", "FastAPI", "PostgreSQL", "OpenAI API"],
-      // },
-      {
-        title: "Kafka Job Scheduler",
-        description:
-          "An event-driven job processing system with queueing, retries, workers, status tracking, and failure handling.",
-        stack: ["Python", "Kafka", "PostgreSQL", "Docker"],
-      },
-    ].map((project, index) => (
-      <motion.article
-        key={project.title}
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{
-          duration: 0.45,
-          delay: index * 0.08,
-          ease: "easeOut",
-        }}
-       className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-[#6366F1]/60 hover:bg-white/[0.06]"
+        variants={fadeIn("up", 0.35)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative z-10 mx-auto max-w-7xl rounded-b-3xl rounded-t-none border border-t-0 border-white/10 bg-[#101010]/90 p-6 shadow-2xl backdrop-blur-sm md:p-8"
       >
-        <p className="mb-3 font-mono text-xs text-[#6366F1]">
-          0{index + 1}
-        </p>
+        <div className="mb-6">
+          <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
+            Currently Building
+          </p>
+          <h2 className="text-3xl font-semibold text-white">
+            What I&apos;m working on now
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-400">
+            Projects I&apos;m actively improving to strengthen my full-stack, cloud, distributed systems, and system design skills.
+          </p>
+        </div>
 
-        <h3 className="text-xl font-semibold text-white">
-          {project.title}
-        </h3>
-
-        <p className="mt-3 text-sm leading-6 text-gray-300">
-          {project.description}
-        </p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="rounded-md border border-white/10 bg- px-3 py-1.5 font-mono text-xs text-gray-200"
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            // {
+            //   title: "AI Agent Analytics Dashboard",
+            //   description:
+            //     "A dashboard for tracking AI requests, latency, token usage, cost, failures, traces, and tool calls.",
+            //   stack: ["React", "FastAPI", "PostgreSQL", "OpenAI API"],
+            // },
+            {
+              title: "Kafka Job Scheduler",
+              description:
+                "An event-driven job processing system with queueing, retries, workers, status tracking, and failure handling.",
+              stack: ["Python", "Kafka", "PostgreSQL", "Docker"],
+            },
+          ].map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.08,
+                ease: "easeOut",
+              }}
+              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-[#6366F1]/60 hover:bg-white/[0.06]"
             >
-              {tech}
-            </span>
+              <p className="mb-3 font-mono text-xs text-[#6366F1]">
+                0{index + 1}
+              </p>
+
+              <h3 className="text-xl font-semibold text-white">
+                {project.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-gray-300">
+                {project.description}
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md border border-white/10 bg- px-3 py-1.5 font-mono text-xs text-gray-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.article>
           ))}
         </div>
-      </motion.article>
-    ))}
-  </div>
-</motion.div>
-      
+      </motion.div>
+
     </section>
   );
 };

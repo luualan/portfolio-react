@@ -4,6 +4,7 @@ import Particle from "@/components/Particle";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import { useRouteTransition } from "@/components/RouteTransitionProvider";
 
 const downloadFile = (fileUrl: string, fileName: string) => {
   const link = document.createElement("a");
@@ -15,6 +16,8 @@ const downloadFile = (fileUrl: string, fileName: string) => {
 };
 
 export default function Home() {
+  const { navigateWithTransition } = useRouteTransition();
+
   return (
     <main className="relative min-h-screen overflow-hidden darken-city">
       <div className="absolute inset-0 z-[5] pointer-events-none opacity-70">
@@ -29,10 +32,6 @@ export default function Home() {
           viewport={{ once: false, amount: 0.3 }}
           className="laptop-hero-content"
         >
-          {/* <p className="text-[#93C5FD] text-[12px] md:text-[14px] font-semibold tracking-[0.28em] uppercase mb-3">
-            Software Engineer
-          </p> */}
-
           <h1 className="text-[28px] leading-tight font-semibold text-white md:text-[44px]">
             Hello, I am a
           </h1>
@@ -74,8 +73,10 @@ export default function Home() {
               />
             </span>
           </h2>
-          <p className="mt-3 text-[13px] md:text-[15px] leading-6 text-slate-200 font-medium max-w-[480px] mx-auto">
-            Always learning, always building — creating software that grows with every challenge.
+
+          <p className="mx-auto mt-3 max-w-[480px] text-[13px] font-medium leading-6 text-slate-200 md:text-[15px]">
+            Always learning, always building — creating software that grows with
+            every challenge.
           </p>
 
           <div className="mt-5 flex flex-wrap justify-center gap-3">
@@ -93,10 +94,14 @@ export default function Home() {
               <span aria-hidden="true">↓</span>
             </button>
 
-            <a href="/about-me" className="laptop-button">
+            <button
+              type="button"
+              className="laptop-button"
+              onClick={() => navigateWithTransition("/about-me")}
+            >
               About
               <span aria-hidden="true">→</span>
-            </a>
+            </button>
           </div>
         </motion.div>
       </section>
