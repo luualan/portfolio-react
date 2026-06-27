@@ -183,3 +183,20 @@
 .swiper-pagination-bullet-active {
   background-color: #6366f1 !important;
 }
+
+@media (max-width: 767px) {
+  main [style*="opacity: 0"],
+  main [style*="opacity:0"],
+  section [style*="opacity: 0"],
+  section [style*="opacity:0"],
+  article[style*="opacity: 0"],
+  article[style*="opacity:0"] {
+    opacity: 1 !important;
+  }
+
+  main [style*="transform"],
+  section [style*="transform"],
+  article[style*="transform"] {
+    transform: none !important;
+  }
+}
