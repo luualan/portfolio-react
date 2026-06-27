@@ -19,7 +19,7 @@ const LiIcon: React.FC<LiIconProps> = ({ reference }) => {
           cx="75"
           cy="50"
           r="20"
-          className=" stroke-[#FF0000] stroke-1 fill-none"
+          className=" stroke-[#6366F1] stroke-1 fill-none"
         />
         <motion.circle
           style={{
@@ -34,7 +34,7 @@ const LiIcon: React.FC<LiIconProps> = ({ reference }) => {
           cx="75"
           cy="50"
           r="10"
-          className="animate-pulse stroke-1 fill-[#FF0000]"
+          className="animate-pulse stroke-1 fill-[#6366F1]"
         />
       </svg>
     </figure>

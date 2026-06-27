@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SideBar from "@/components/SideBar";
 import { usePathname } from "next/navigation";
+import ScrollProgress from "@/components/ScollProgress";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ScrollProgress />
         <Navbar backgroundColor={backgroundColor} />
-        <SideBar />
+        <div className="hidden lg:block">
+          <SideBar />
+        </div>
         {children}
       </body>
     </html>

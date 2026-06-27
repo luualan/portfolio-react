@@ -3,48 +3,52 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// bg-[#2e2257] bg-[#3b2d71] bg-[#4b3792]
+const curtainEase: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
-// full screen
-const TransitionVariants = {
-  initial: {
-    x: "100%",
-    width: "100%",
+const layers = [
+  {
+    color: "bg-[#1b1b1b]",
+    delay: 0,
+    width: "w-[125vw]",
+    left: "left-[-12vw]",
+    zIndex: "z-[30]",
   },
-  animate: {
-    x: "0%",
-    width: "0%",
+  {
+    color: "bg-[#4338CA]",
+    delay: 0.08,
+    width: "w-[112vw]",
+    left: "left-[-6vw]",
+    zIndex: "z-[40]",
   },
-  exit: {
-    x: ["0%", "100%"],
-    width: ["0%", "100%"],
+  {
+    color: "bg-[#6366F1]",
+    delay: 0.16,
+    width: "w-[96vw]",
+    left: "left-[2vw]",
+    zIndex: "z-[50]",
   },
-};
+];
 
 const Transition = () => {
   return (
-    <div>
-      <motion.div
-        className="fixed top-0 bottom-0 h-screen w-screen right-full z-[30] bg-white"
-        variants={TransitionVariants}
-        initial="initial"
-        animate="animate"
-        transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-0 bottom-0 h-screen w-screen right-full z-[20] bg-[#1b1b1b]"
-        variants={TransitionVariants}
-        initial="initial"
-        animate="animate"
-        transition={{ delay: 0.4, duration: 0.6, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-0 bottom-0 h-screen w-screen right-full z-[10] bg-[#FF0000]"
-        variants={TransitionVariants}
-        initial="initial"
-        animate="animate"
-        transition={{ delay: 0.6, duration: 0.6, ease: "easeInOut" }}
-      />
+    <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden bg-transparent">
+      {layers.map((layer) => (
+        <motion.div
+          key={`${layer.color}-${layer.delay}`}
+          className={`fixed inset-y-0 ${layer.left} h-[100svh] ${layer.width} ${layer.color} ${layer.zIndex} will-change-transform`}
+          initial={{ x: "115%", skewX: -8 }}
+          animate={{
+            x: ["115%", "0%", "0%", "-115%"],
+            skewX: [-8, -8, -8, -8],
+          }}
+          transition={{
+            delay: layer.delay,
+            duration: 0.95,
+            ease: curtainEase,
+            times: [0, 0.38, 0.58, 1],
+          }}
+        />
+      ))}
     </div>
   );
 };

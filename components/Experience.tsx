@@ -114,17 +114,69 @@ const experienceItems: ExperienceItem[] = [
   },
 ];
 
-const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }) => {
+const ExperienceCard = ({
+  item,
+  index,
+  isLast,
+}: {
+  item: ExperienceItem;
+  index: number;
+  isLast: boolean;
+}) => {
   return (
     <article className="group relative pl-10">
-      <div className="absolute left-[7px] top-2 h-full w-px bg-white/10 group-last:hidden" />
+      {!isLast && (
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{
+            duration: 0.75,
+            delay: index * 0.08,
+            ease: "easeOut",
+          }}
+          className="absolute bottom-[-2rem] left-[7px] top-7 w-px origin-top bg-gradient-to-b from-[#6366F1]/70 via-white/10 to-transparent"
+        />
+      )}
 
-      <div className="absolute left-0 top-2 h-4 w-4 rounded-full border-2 border-[#FF0000] bg-[#1b1b1b] shadow-[0_0_20px_rgba(255,0,0,0.45)]" />
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.35,
+          delay: index * 0.08,
+          ease: "easeOut",
+        }}
+        className="absolute left-0 top-2 h-4 w-4 rounded-full border-2 border-[#6366F1] bg-[#1b1b1b] shadow-[0_0_22px_rgba(99,102,241,0.55)]"
+      />
 
-      <div className="rounded-3xl border border-white/10 bg-[#101010]/90 p-6 shadow-xl backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#FF0000]/60 hover:bg-white/[0.04]">
+      <motion.div
+        initial={{ opacity: 0, y: 28, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{
+          duration: 0.45,
+          delay: index * 0.08,
+          ease: "easeOut",
+        }}
+        whileHover={{
+          y: -6,
+          scale: 1.01,
+          rotateX: 0.6,
+          rotateY: -0.6,
+          transition: {
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          },
+        }}
+        className="rounded-3xl border border-white/10 bg-[#101010]/90 p-6 shadow-xl backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/60 hover:bg-white/[0.04]"
+        style={{ transformStyle: "preserve-3d" }}
+      >
         <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="mb-2 font-mono text-xs text-[#FF0000]">
+            <p className="mb-2 font-mono text-xs text-[#6366F1]">
               0{index + 1}
             </p>
 
@@ -137,7 +189,7 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
                 href={item.companyLink}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#FF0000] hover:underline"
+                className="text-[#6366F1] hover:underline"
               >
                 {item.company}
               </a>{" "}
@@ -154,8 +206,11 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
 
         <ul className="mb-5 space-y-3">
           {item.highlights.map((highlight) => (
-            <li key={highlight} className="flex gap-3 text-sm leading-6 text-gray-300">
-              <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF0000]" />
+            <li
+              key={highlight}
+              className="flex gap-3 text-sm leading-6 text-gray-300"
+            >
+              <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6366F1]" />
               <span>{highlight}</span>
             </li>
           ))}
@@ -165,13 +220,13 @@ const ExperienceCard = ({ item, index }: { item: ExperienceItem; index: number }
           {item.skills.map((skill) => (
             <span
               key={skill}
-              className="rounded-md border border-white/10 bg-black/30 px-3 py-1.5 font-mono text-xs text-gray-200"
+              className="rounded-md border border-white/10 bg-black/30 px-3 py-1.5 font-mono text-xs text-gray-200 transition duration-200 hover:border-[#6366F1]/50 hover:text-white"
             >
               {skill}
             </span>
           ))}
         </div>
-      </div>
+      </motion.div>
     </article>
   );
 };
@@ -186,7 +241,7 @@ const Experience = () => {
       className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-sm md:p-8"
     >
       <div className="mb-8">
-        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#FF0000]">
+        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
           Work History
         </p>
         <h2 className="text-3xl font-semibold text-white">Experience</h2>
@@ -194,7 +249,12 @@ const Experience = () => {
 
       <div className="space-y-8">
         {experienceItems.map((item, index) => (
-          <ExperienceCard key={`${item.position}-${item.time}`} item={item} index={index} />
+          <ExperienceCard
+            key={`${item.position}-${item.time}`}
+            item={item}
+            index={index}
+            isLast={index === experienceItems.length - 1}
+          />
         ))}
       </div>
     </motion.section>

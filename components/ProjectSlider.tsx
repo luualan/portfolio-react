@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { ProjectData } from "@/constants";
 import { fadeIn } from "@/variants";
 
+const PAGE_ANIMATION_DELAY = 0.75;
+
 const ProjectSlider = () => {
   return (
     <section>
@@ -16,12 +18,12 @@ const ProjectSlider = () => {
         viewport={{ once: true, amount: 0.2 }}
         className="mb-12 text-center"
       >
-        <p className="mb-3 text-sm uppercase tracking-[0.3em] text-[#FF0000]">
+        <p className="mb-3 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
           Portfolio
         </p>
 
         <h1 className="text-4xl font-semibold text-white md:text-6xl">
-          Featured Projects<span className="text-[#FF0000]">.</span>
+          Featured Projects<span className="text-[#6366F1]">.</span>
         </h1>
 
         <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-300 md:text-base">
@@ -30,17 +32,23 @@ const ProjectSlider = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        variants={fadeIn("up", 0.3)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
-        className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
-      >
-        {ProjectData.map((project) => (
-          <article
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {ProjectData.map((project, index) => (
+          <motion.article
             key={project.title}
-            className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-lg backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#FF0000]/60 hover:bg-white/[0.06]"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.45,
+              delay: PAGE_ANIMATION_DELAY + index * 0.1,
+              ease: "easeOut",
+            }}
+            whileHover={{
+              y: -6,
+              scale: 1.015,
+            }}
+            className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-lg backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/60 hover:bg-white/[0.06]"
           >
             {project.image && (
               <div className="relative h-52 w-full overflow-hidden bg-black/30">
@@ -56,7 +64,7 @@ const ProjectSlider = () => {
 
             <div className="flex min-h-[330px] flex-col p-6">
               <div className="mb-4">
-                <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-[#FF0000]">
+                <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-[#6366F1]">
                   {project.category}
                 </p>
 
@@ -73,7 +81,7 @@ const ProjectSlider = () => {
                 <ul className="mb-5 space-y-2 text-sm text-gray-300">
                   {project.highlights.map((highlight) => (
                     <li key={highlight} className="flex gap-2">
-                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF0000]" />
+                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6366F1]" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -101,7 +109,7 @@ const ProjectSlider = () => {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="rounded-full bg-[#FF0000] px-4 py-2 text-sm font-medium text-white transition hover:bg-red-700"
+                        className="rounded-full bg-[#6366F1] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#4338CA]"
                       >
                         {link.label}
                       </a>
@@ -109,9 +117,9 @@ const ProjectSlider = () => {
                 </div>
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };
