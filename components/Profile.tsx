@@ -56,8 +56,7 @@ const Profile = () => {
           </p>
 
           <p className="mt-4 max-w-xl text-base leading-7 text-gray-400">
-            Outside of work, I enjoy reading, boxing, playing piano, skiing,
-            golf, and PC gaming.
+            Outside of work, I enjoy staying active through boxing, skiing, golfing, and going to the gym. I also like traveling, reading, playing piano, learning Japanese, playing board games, and gaming.
           </p>
 
           <div className="mt-8 grid gap-3">
