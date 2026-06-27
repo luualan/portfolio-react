@@ -143,9 +143,6 @@ const Profile = () => {
           viewport={{ once: true, amount: 0.25 }}
           whileHover={{
             y: -4,
-            scale: 1.005,
-            rotateX: 0.4,
-            rotateY: -0.4,
             transition: {
               type: "spring",
               stiffness: 260,
@@ -153,7 +150,7 @@ const Profile = () => {
             },
           }}
           className="flex-1 rounded-b-3xl border border-white/10 bg-[#0d0d0d]/90 p-6 shadow-2xl backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 lg:rounded-l-none lg:rounded-r-3xl md:p-8"
-          style={{ transformStyle: "preserve-3d" }}
+        // style={{ transformStyle: "preserve-3d" }}
         >
           <div className="mb-6">
             <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
