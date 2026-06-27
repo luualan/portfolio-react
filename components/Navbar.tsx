@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Socials } from "@/constants";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import Transition from "./Transition";
 
 type NavbarProps = {
@@ -64,7 +63,6 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor = "" }) => {
               </span>
             </Link>
 
-            {/* Desktop nav links */}
             <div className="hidden items-center gap-7 md:flex">
               {navLinks.map((link) => {
                 const isActive = path === link.href;
@@ -87,7 +85,6 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor = "" }) => {
             </div>
 
             <div className="flex items-center gap-2 md:gap-3">
-              {/* Socials */}
               {Socials.map((social) => (
                 <a
                   href={social.link}
@@ -95,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor = "" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/10 transition duration-300 hover:-translate-y-1 hover:bg-[#4338CA]/80 hover:shadow-[0_10px_24px_rgba(67,56,202,0.35)] md:h-10 md:w-10"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/10 transition duration-300 hover:bg-[#4338CA]/80 md:h-10 md:w-10 md:hover:-translate-y-1 md:hover:shadow-[0_10px_24px_rgba(67,56,202,0.35)]"
                 >
                   <Image
                     src={social.src}
@@ -107,27 +104,26 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor = "" }) => {
                 </a>
               ))}
 
-              {/* Mobile hamburger button */}
               <button
                 type="button"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((prev) => !prev)}
-                className="ml-1 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white transition hover:bg-[#4338CA]/80 md:hidden"
+                className="ml-1 flex h-9 w-9 touch-manipulation items-center justify-center rounded-full border border-white/10 bg-white/10 text-white transition hover:bg-[#4338CA]/80 md:hidden"
               >
-                <span className="relative h-4 w-5">
+                <span className="relative block h-4 w-5">
                   <span
-                    className={`absolute left-0 top-0 h-[2px] w-5 rounded-full bg-white transition duration-300 ${
+                    className={`absolute left-0 top-0 block h-[2px] w-5 rounded-full bg-white transition-transform duration-200 ${
                       menuOpen ? "translate-y-[7px] rotate-45" : ""
                     }`}
                   />
                   <span
-                    className={`absolute left-0 top-[7px] h-[2px] w-5 rounded-full bg-white transition duration-300 ${
+                    className={`absolute left-0 top-[7px] block h-[2px] w-5 rounded-full bg-white transition-opacity duration-200 ${
                       menuOpen ? "opacity-0" : "opacity-100"
                     }`}
                   />
                   <span
-                    className={`absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-white transition duration-300 ${
+                    className={`absolute left-0 top-[14px] block h-[2px] w-5 rounded-full bg-white transition-transform duration-200 ${
                       menuOpen ? "-translate-y-[7px] -rotate-45" : ""
                     }`}
                   />
@@ -136,53 +132,29 @@ const Navbar: React.FC<NavbarProps> = ({ backgroundColor = "" }) => {
             </div>
           </div>
 
-          {/* Mobile dropdown menu */}
-          <AnimatePresence>
-            {menuOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{
-                  duration: 0.25,
-                  ease: "easeInOut",
-                }}
-                className="overflow-hidden md:hidden"
-              >
-                <div className="mt-4 grid gap-2 border-t border-white/10 pt-4">
-                  {navLinks.map((link, index) => {
-                    const isActive = path === link.href;
+          {menuOpen && (
+            <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 md:hidden">
+              {navLinks.map((link) => {
+                const isActive = path === link.href;
 
-                    return (
-                      <motion.div
-                        key={link.name}
-                        initial={{ opacity: 0, x: -12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.25,
-                          delay: index * 0.04,
-                          ease: "easeOut",
-                        }}
-                      >
-                        <Link
-                          href={link.href}
-                          onClick={() => handleNavClick(link.href)}
-                          className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition ${
-                            isActive
-                              ? "bg-[#4338CA]/70 text-white"
-                              : "bg-white/[0.04] text-slate-200 hover:bg-white/[0.08] hover:text-[#A5B4FC]"
-                          }`}
-                        >
-                          {link.name}
-                          <span className="text-[#818CF8]">→</span>
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-[#4338CA]/70 text-white"
+                        : "bg-white/[0.04] text-slate-200 hover:bg-white/[0.08] hover:text-[#A5B4FC]"
+                    }`}
+                  >
+                    {link.name}
+                    <span className="text-[#818CF8]">→</span>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </nav>
       </header>
     </>
