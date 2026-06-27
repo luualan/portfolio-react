@@ -31,7 +31,7 @@ const Profile = () => {
               damping: 22,
             },
           }}
-          className="relative flex-1 overflow-hidden rounded-t-3xl border border-white/10 bg-[#101010]/90 p-8 shadow-2xl backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 lg:rounded-l-3xl lg:rounded-r-none lg:border-r-0 md:p-10"
+          className="relative flex-1 overflow-hidden rounded-none rounded-tl-3xl border border-white/10 bg-[#101010]/90 p-8 backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 lg:rounded-tr-none lg:border-r-0 md:p-10"
           style={{ transformStyle: "preserve-3d" }}
         >
           <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#6366F1] to-transparent opacity-70" />
@@ -149,7 +149,7 @@ const Profile = () => {
               damping: 22,
             },
           }}
-          className="flex-1 rounded-b-3xl border border-white/10 bg-[#0d0d0d]/90 p-6 shadow-2xl backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 lg:rounded-l-none lg:rounded-r-3xl md:p-8"
+         className="flex-1 rounded-none rounded-tr-3xl border border-white/10 bg-[#101010]/90 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#6366F1]/40 md:p-8"
         // style={{ transformStyle: "preserve-3d" }}
         >
           <div className="mb-6">
@@ -221,7 +221,81 @@ const Profile = () => {
             })}
           </div>
         </motion.div>
+        
       </div>
+      <motion.div
+  variants={fadeIn("up", 0.35)}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  className="relative z-10 mx-auto max-w-7xl rounded-b-3xl rounded-t-none border border-t-0 border-white/10 bg-[#101010]/90 p-6 shadow-2xl backdrop-blur-sm md:p-8"
+>
+  <div className="mb-6">
+    <p className="mb-2 text-sm uppercase tracking-[0.3em] text-[#6366F1]">
+      Currently Building
+    </p>
+    <h2 className="text-3xl font-semibold text-white">
+      What I&apos;m working on now
+    </h2>
+    <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-400">
+     Projects I&apos;m actively improving to strengthen my full-stack, cloud, distributed systems, and system design skills.
+    </p>
+  </div>
+
+  <div className="grid gap-4 md:grid-cols-3">
+    {[
+      // {
+      //   title: "AI Agent Analytics Dashboard",
+      //   description:
+      //     "A dashboard for tracking AI requests, latency, token usage, cost, failures, traces, and tool calls.",
+      //   stack: ["React", "FastAPI", "PostgreSQL", "OpenAI API"],
+      // },
+      {
+        title: "Kafka Job Scheduler",
+        description:
+          "An event-driven job processing system with queueing, retries, workers, status tracking, and failure handling.",
+        stack: ["Python", "Kafka", "PostgreSQL", "Docker"],
+      },
+    ].map((project, index) => (
+      <motion.article
+        key={project.title}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.45,
+          delay: index * 0.08,
+          ease: "easeOut",
+        }}
+       className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-colors duration-300 hover:border-[#6366F1]/60 hover:bg-white/[0.06]"
+      >
+        <p className="mb-3 font-mono text-xs text-[#6366F1]">
+          0{index + 1}
+        </p>
+
+        <h3 className="text-xl font-semibold text-white">
+          {project.title}
+        </h3>
+
+        <p className="mt-3 text-sm leading-6 text-gray-300">
+          {project.description}
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.stack.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-md border border-white/10 bg- px-3 py-1.5 font-mono text-xs text-gray-200"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </motion.article>
+    ))}
+  </div>
+</motion.div>
+      
     </section>
   );
 };

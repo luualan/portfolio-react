@@ -23,7 +23,7 @@ const experienceItems: ExperienceItem[] = [
     time: "April 2024 – December 2025",
     location: "Redmond, WA",
     summary:
-      "Worked on cloud data workflows, backend systems, telemetry dashboards, and automated testing for Azure usage and billing analytics.",
+      "Built and optimized cloud data workflows, backend systems, an internal Azure analytics dashboard, and automated test coverage for cloud consumption, telemetry, and billing analytics.",
     highlights: [
       "Migrated legacy Scala logic to PySpark in Azure Synapse, rewriting 20+ notebooks and data pipelines for Fortune 500 consumption and billing analytics.",
       "Reduced runtime of 3 production Spark pipelines by 75% by optimizing joins, partitioning, cluster scaling, and Managed Identity authentication.",
@@ -79,9 +79,9 @@ const experienceItems: ExperienceItem[] = [
     time: "February 2016 – August 2016",
     location: "Redmond, WA",
     summary:
-      "Built analytics scripts, dashboard features, and internal tools for Cortana usage insights on Xbox One.",
+      "Built analytics scripts, dashboard metric tiles, and internal tools to surface Cortana usage insights for Xbox engineering teams.",
     highlights: [
-      "Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage.",
+      "Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage, helping developers identify high-impact features for the Xbox One Cortana release.",
       "Built OnePulse dashboard metric tiles in C# to visualize Cortana usage trends for engineering teams.",
       "Implemented an ASP.NET web dashboard to aggregate Cortana metrics and improve access to usage insights.",
     ],
