@@ -415,7 +415,7 @@ export const ProjectData = [
     ],
   },
   {
-    title: "Job Scheduler API",
+    title: "Job Processing API",
     category: "Backend API",
     description:
       "A backend job scheduling service that manages job creation, status tracking, processing, and failure handling through REST API endpoints.",
@@ -433,7 +433,7 @@ export const ProjectData = [
       },
       {
         label: "Backend",
-        href: "https://job-processing-api.onrender.com/docs",
+        href: "https://job-processing-api.alanluu.net/docs",
       },
     ],
   },
