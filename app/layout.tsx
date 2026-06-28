@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SideBar from "@/components/SideBar";
-import { usePathname } from "next/navigation";
 import ScrollProgress from "@/components/ScollProgress";
 import { RouteTransitionProvider } from "@/components/RouteTransitionProvider";
 
@@ -15,20 +14,13 @@ type RootLayoutProps = {
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const path = usePathname();
-
-  const backgroundColor =
-    path === "/experience" || path === "/about-me"
-      ? "bg-[#1b1b1b]"
-      : "bg-transparent";
-
   return (
     <html lang="en">
       <body className={inter.className}>
         <RouteTransitionProvider>
           <ScrollProgress />
 
-          <Navbar backgroundColor={backgroundColor} />
+          <Navbar />
 
           <div className="hidden lg:block">
             <SideBar />
