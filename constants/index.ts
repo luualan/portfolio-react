@@ -406,11 +406,11 @@ export const ProjectData = [
       },
       {
         label: "Frontend",
-        href: "https://retail-sales-aws-pipeline.vercel.app/",
+        href: "https://retail.alanluu.net/",
       },
       {
         label: "Backend",
-        href: "https://retaillens-api-mfr4.onrender.com/docs",
+        href: "https://retail-api.alanluu.net/docs",
       },
     ],
   },
