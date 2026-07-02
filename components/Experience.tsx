@@ -25,10 +25,10 @@ const experienceItems: ExperienceItem[] = [
     summary:
       "Built and optimized cloud data workflows, backend systems, an internal Azure analytics dashboard, and automated test coverage for cloud consumption, telemetry, and billing analytics.",
     highlights: [
-      "Migrated legacy Scala logic to PySpark in Azure Synapse, rewriting 20+ notebooks and data pipelines for Fortune 500 consumption and billing analytics.",
-      "Reduced runtime of 3 production Spark pipelines by 75% by optimizing joins, partitioning, cluster scaling, and Managed Identity authentication.",
-      "Built ETL workflows using Cosmos DB, Cosmos SCOPE, and Kusto/KQL to ingest, validate, and onboard 80+ telemetry metrics.",
-      "Owned and enhanced 150+ Playwright E2E tests across Product, Consumption, and Quality areas for an Azure Usage dashboard.",
+      "Refactored legacy Scala ETL logic into PySpark in Azure Synapse, rewriting 20+ data pipelines that processed billions of Azure usage and billing records for Fortune 500 clients and Microsoft internal teams.",
+      "Reduced runtime of 3 production Apache Spark pipelines by 75% (24h → 5-6h) by resolving stage retries, scaling worker capacity, improving partition pruning, and optimizing joins, accelerating customer reporting.",
+      "Built end-to-end ETL data pipelines with Cosmos DB, Cosmos SCOPE, and Kusto/KQL to ingest, validate, and surface 80+ Azure telemetry metrics in a stakeholder-facing dashboard for usage and cloud performance reporting.",
+      "Owned and enhanced 150+ Playwright E2E tests in TypeScript, expanding coverage across Product, Consumption, and Quality domains while stabilizing flaky tests and validating Azure dashboard features amid UI changes.",
     ],
     skills: [
       "Python",
@@ -51,13 +51,13 @@ const experienceItems: ExperienceItem[] = [
     time: "March 2022 – September 2023",
     location: "Redmond, WA",
     summary:
-      "Developed reliability and system validation test suites for next-generation Xbox consoles across hardware, OS, networking, and test infrastructure.",
+      "Developed reliability and system validation test suites for prior and next-generation Xbox consoles.",
     highlights: [
-      "Developed and maintained multi-day reliability test suites in C# and C++ for Xbox console validation across global lab environments.",
-      "Debugged long-running test failures involving memory leaks, port exhaustion, firmware, OS, networking, and test infrastructure.",
+      "Developed and maintained 6 Xbox reliability test suites in C# and C++, covering 20–60 automated tests per suite across hardware, firmware, OS, networking, and thermal validation for 9 Xbox console programs.",
+      "Stabilized long-running Xbox reliability tests by resolving memory leaks, port exhaustion, cross-stack failures, and test infrastructure issues, unblocking technicians and engineers across 7 global hardware labs.",
       "Automated Xbox test log extraction to Excel, reducing manual data entry for lab technicians.",
-      "Resolved 120+ CodeQL issues across 4 production repositories, improving code quality, security, and maintainability.",
-      "Refactored 41 legacy C# projects and migrated pre-built NuGet packages to reduce main repo build time by 6 minutes.",
+      "Improved code quality and security across 4 production repositories by resolving 120+ CodeQL issues in C# and C++, addressing vulnerabilities and maintainability risks.",
+      "Refactored 41 legacy C# projects and migrated pre-built NuGet packages to reduce main repo build time by 30 minutes.",
     ],
     skills: [
       "C#",
@@ -81,9 +81,9 @@ const experienceItems: ExperienceItem[] = [
     summary:
       "Built analytics scripts, dashboard metric tiles, and internal tools to surface Cortana usage insights for Xbox engineering teams.",
     highlights: [
-      "Developed Cosmos SCOPE analytics scripts to extract and summarize Cortana speech feature usage, helping developers identify high-impact features for the Xbox One Cortana release.",
-      "Built OnePulse dashboard metric tiles in C# to visualize Cortana usage trends for engineering teams.",
-      "Implemented an ASP.NET web dashboard to aggregate Cortana metrics and improve access to usage insights.",
+      "Developed Cosmos SCOPE analytics scripts to aggregate Cortana speech usage data, helping engineering teams identify high-impact voice features for Cortana’s release on Xbox One.",
+      "Built OnePulse metric tiles and an ASP.NET dashboard in C# and JavaScript to visualize Cortana usage trends, improving access to voice feature usage and speech interaction insights.",
+      "Supported Cortana validation by collecting speech feedback and reporting findings to improve release readiness.",
     ],
     skills: [
       "ASP.NET",
@@ -99,7 +99,7 @@ const experienceItems: ExperienceItem[] = [
     ],
   },
   {
-    position: "Co-Teacher — C#",
+    position: "Co-Teacher — C# & CompTIA A+",
     company: "Year Up",
     companyLink: "https://www.yearup.org/",
     time: "September 2015 – November 2015",
